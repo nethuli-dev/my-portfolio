@@ -1697,14 +1697,37 @@ main {
   background: transparent;
 }
 
-.courses-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+.courses-scroll-track {
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 10px 4px 28px;
   margin-top: 30px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--blue-royal) rgba(140, 193, 233, 0.08);
+}
+
+.courses-scroll-track::-webkit-scrollbar {
+  height: 5px;
+}
+
+.courses-scroll-track::-webkit-scrollbar-track {
+  background: rgba(140, 193, 233, 0.08);
+  border-radius: 10px;
+}
+
+.courses-scroll-track::-webkit-scrollbar-thumb {
+  background: var(--blue-royal);
+  border-radius: 10px;
 }
 
 .course-card {
+  flex: 0 0 300px;
+  min-width: 300px;
+  scroll-snap-align: start;
   border-radius: 18px;
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
@@ -1714,6 +1737,7 @@ main {
   padding: 26px 22px;
   display: flex;
   flex-direction: column;
+  gap: 14px;
   transition: all var(--transition-normal);
 }
 
@@ -1849,11 +1873,11 @@ main {
 }
 
 .contact-email-link {
-  font-family: var(--font-heading);
-  font-weight: var(--font-heading-weight);
+  font-family: var(--font-body);
+  font-weight: var(--font-body-weight);
   color: var(--clouds);
-  font-size: clamp(22px, 2.5vw, 32px);
-  letter-spacing: -0.02em;
+  font-size: 24px;
+  letter-spacing: -0.01em;
   transition: all var(--transition-fast);
   word-break: break-all;
 }
@@ -1896,9 +1920,9 @@ main {
 }
 
 .contact-icon-btn {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
+  width: 68px;
+  height: 68px;
+  border-radius: 18px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1913,8 +1937,8 @@ main {
 }
 
 .contact-icon-btn svg {
-  width: 22px;
-  height: 22px;
+  width: 30px;
+  height: 30px;
   transition: transform var(--transition-fast);
 }
 
@@ -1944,7 +1968,7 @@ main {
 }
 
 .form-label-title {
-  color: var(--text-muted);
+  color: var(--clouds);
   font-family: var(--font-body);
   font-weight: var(--font-body-weight);
   font-size: 13px;

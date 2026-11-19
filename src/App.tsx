@@ -12,6 +12,7 @@ import aboutProfilePic from './assets/images/nethuli-portfolio.png'
 import lifelinkImg from './assets/projects/lifelink.jpeg'
 import sahaayaImg from './assets/projects/sahaaya.jpeg'
 import pacmanImg from './assets/projects/pac-man.gif'
+import semesterRiskImg from './assets/projects/semesterrisk.png'
 import genaiImg from './assets/projects/genai-code-reviewer.jpeg'
 import movierentalImg from './assets/projects/movierental.jpeg'
 import greenhouseImg from './assets/projects/greenhouse.jpeg'
@@ -38,6 +39,7 @@ interface Project {
   technologies: string[]
   symbol: string
   image?: string
+  videoUrl?: string
   githubUrl: string
   liveUrl?: string
 }
@@ -112,6 +114,8 @@ const projects: Project[] = [
       'A semester risk analysis project designed to help identify potential academic performance risks through student-related data analysis and risk assessment.',
     technologies: ['Python', 'Data Analysis', 'Machine Learning'],
     symbol: '◉',
+    image: semesterRiskImg,
+    videoUrl: '/semesterrisk.mp4',
     githubUrl: 'https://github.com/nethuli-dev/Semester-Risk-Analyzer-.git',
   },
   {
@@ -213,55 +217,87 @@ const skillCategories = [
   },
 ]
 
-/* Licenses and Courses */
+/* Licenses and Courses — in order of issue date (newest first) */
 const coursesList = [
   {
-    id: 'sml',
-    title: 'Supervised Machine Learning: Regression and Classification',
-    issuer: 'DeepLearning.AI & Stanford',
-    year: '2024',
-    credId: 'Credential #DL-SML-2024',
-    tags: ['Machine Learning', 'Python', 'Scikit-Learn', 'Algorithms'],
+    id: 'ai-agentic',
+    title: 'AI Agentic Design Patterns with AutoGen',
+    issuer: 'DeepLearning.AI',
+    issuedDate: 'Nov 2025',
+    credUrl: 'https://www.deeplearning.ai/',
+    tags: ['AI Agents', 'AutoGen', 'Multi-Agent Systems', 'LLMs'],
   },
   {
-    id: 'dl-spec',
-    title: 'Deep Learning Specialization',
+    id: 'ai-agents-langgraph',
+    title: 'AI Agents in LangGraph',
     issuer: 'DeepLearning.AI',
-    year: '2024',
-    credId: 'Credential #DL-SPEC-9842',
-    tags: ['Neural Networks', 'CNN', 'Sequence Models', 'PyTorch'],
+    issuedDate: 'Oct 2025',
+    credUrl: 'https://www.deeplearning.ai/',
+    tags: ['LangGraph', 'AI Agents', 'LangChain', 'RAG'],
   },
   {
     id: 'genai-llm',
-    title: 'Generative AI with Large Language Models (LLMs)',
+    title: 'Generative AI with Large Language Models',
     issuer: 'DeepLearning.AI & AWS',
-    year: '2025',
-    credId: 'Credential #AWS-GENAI-7721',
-    tags: ['Generative AI', 'LLMs', 'Prompt Engineering', 'RAG'],
+    issuedDate: 'Sep 2025',
+    credUrl: 'https://www.coursera.org/learn/generative-ai-with-llms',
+    tags: ['Generative AI', 'LLMs', 'Prompt Engineering', 'Fine-Tuning'],
+  },
+  {
+    id: 'prompt-engineering',
+    title: 'Pair Programming with a Large Language Model',
+    issuer: 'DeepLearning.AI',
+    issuedDate: 'Aug 2025',
+    credUrl: 'https://www.deeplearning.ai/',
+    tags: ['Prompt Engineering', 'LLMs', 'Code Generation', 'Python'],
+  },
+  {
+    id: 'ml-spec',
+    title: 'Machine Learning Specialization',
+    issuer: 'DeepLearning.AI & Stanford Online',
+    issuedDate: 'Jun 2025',
+    credUrl: 'https://www.coursera.org/specializations/machine-learning-introduction',
+    tags: ['Supervised ML', 'Neural Networks', 'Decision Trees', 'Python'],
+  },
+  {
+    id: 'sml',
+    title: 'Supervised Machine Learning: Regression and Classification',
+    issuer: 'DeepLearning.AI & Stanford Online',
+    issuedDate: 'Apr 2025',
+    credUrl: 'https://www.coursera.org/learn/machine-learning',
+    tags: ['Regression', 'Classification', 'Scikit-Learn', 'Python'],
+  },
+  {
+    id: 'adv-ml',
+    title: 'Advanced Learning Algorithms',
+    issuer: 'DeepLearning.AI & Stanford Online',
+    issuedDate: 'Apr 2025',
+    credUrl: 'https://www.coursera.org/learn/advanced-learning-algorithms',
+    tags: ['Neural Networks', 'Decision Trees', 'TensorFlow', 'Python'],
+  },
+  {
+    id: 'unsupervised-ml',
+    title: 'Unsupervised Learning, Recommenders, Reinforcement Learning',
+    issuer: 'DeepLearning.AI & Stanford Online',
+    issuedDate: 'May 2025',
+    credUrl: 'https://www.coursera.org/learn/unsupervised-learning-recommenders-reinforcement-learning',
+    tags: ['Clustering', 'Recommender Systems', 'Reinforcement Learning'],
   },
   {
     id: 'py-ds',
     title: 'Python for Data Science, AI & Development',
-    issuer: 'IBM (Coursera)',
-    year: '2024',
-    credId: 'Credential #IBM-PY-5541',
+    issuer: 'IBM via Coursera',
+    issuedDate: 'Feb 2025',
+    credUrl: 'https://www.coursera.org/learn/python-for-applied-data-science-ai',
     tags: ['Python', 'Pandas', 'NumPy', 'Data Analysis'],
   },
   {
     id: 'fullstack-asp',
     title: 'Full-Stack Development with React & ASP.NET Core',
     issuer: 'Microsoft Learn',
-    year: '2024',
-    credId: 'Credential #MS-FSD-3180',
+    issuedDate: 'Dec 2024',
+    credUrl: 'https://learn.microsoft.com/',
     tags: ['React', 'ASP.NET Core', 'C#', 'PostgreSQL'],
-  },
-  {
-    id: 'ai-agents',
-    title: 'Autonomous AI Agents & Intelligent Systems',
-    issuer: 'Nexora AI Lab',
-    year: '2026',
-    credId: 'Credential #NX-AGENT-01',
-    tags: ['AI Agents', 'Automation', 'Heuristic Decision-Making'],
   },
 ]
 
@@ -720,25 +756,6 @@ function App() {
             </h2>
           </div>
 
-          {/* HORIZONTAL PROJECT NAVIGATION CHIPS */}
-          <div className="project-navigation">
-            <div className="project-navigation-label">EXPLORE PROJECTS</div>
-
-            <div className="project-navigation-links">
-              {projects.map((project) => (
-                <button
-                  type="button"
-                  key={project.id}
-                  onClick={() => scrollToProject(project.id)}
-                  className="project-nav-link"
-                >
-                  <span>{project.number}</span>
-                  {project.title}
-                </button>
-              ))}
-            </div>
-          </div>
-
           {/* PROJECT CAROUSEL */}
           <div className="project-carousel-wrapper">
             <div className="project-carousel-heading">
@@ -782,7 +799,25 @@ function App() {
                   </div>
 
                   {/* PROJECT MEDIA (CLICKABLE TO LIVE WEB IF AVAILABLE) */}
-                  {project.image ? (
+                  {project.videoUrl ? (
+                    <div className="project-media-area project-video-area">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="project-image"
+                        loading="lazy"
+                      />
+                      <div className="project-video-overlay">
+                        <video
+                          src={project.videoUrl}
+                          className="project-video"
+                          controls
+                          preload="metadata"
+                          aria-label={`Demo video for ${project.title}`}
+                        />
+                      </div>
+                    </div>
+                  ) : project.image ? (
                     project.liveUrl ? (
                       <a
                         href={project.liveUrl}
@@ -1007,22 +1042,34 @@ function App() {
             </h2>
           </div>
 
-          <div className="courses-grid">
-            {coursesList.map((course) => (
+          <div className="courses-scroll-track">
+            {coursesList.map((course, index) => (
               <div className="course-card" key={course.id}>
                 <div className="course-card-top">
                   <span className="course-issuer">{course.issuer}</span>
-                  <span className="course-year">{course.year}</span>
+                  <span className="course-year">{course.issuedDate}</span>
+                </div>
+                <div className="course-index-num">
+                  {String(index + 1).padStart(2, '0')}
                 </div>
                 <h3 className="course-title">{course.title}</h3>
-                <div className="course-cred">
-                  <span>✦</span> {course.credId}
-                </div>
                 <div className="course-tags">
                   {course.tags.map((tag) => (
                     <span key={tag}>{tag}</span>
                   ))}
                 </div>
+                <a
+                  href={course.credUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="course-cred-link"
+                  aria-label={`View certificate: ${course.title}`}
+                >
+                  View Certificate
+                  <svg fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
               </div>
             ))}
           </div>
@@ -1042,18 +1089,8 @@ function App() {
           </h2>
 
           <div className="contact-split-grid">
-            {/* LEFT COLUMN: EMAIL, DETAILS & INTERACTIVE SOCIAL ICON BUTTONS */}
+            {/* LEFT COLUMN: LOCATION, STATUS & INTERACTIVE SOCIAL ICON BUTTONS */}
             <div className="contact-left-info">
-              <div className="contact-email-block">
-                <span className="contact-email-label">DIRECT EMAIL</span>
-                <a
-                  href="mailto:natharadhanapala@gmail.com"
-                  className="contact-email-link"
-                >
-                  natharadhanapala@gmail.com
-                </a>
-              </div>
-
               <div className="contact-location-info">
                 <p>Colombo, Sri Lanka</p>
                 <p>6.9271° N / 79.8612° E</p>
@@ -1064,12 +1101,36 @@ function App() {
                 Available for AI Internships & Roles
               </div>
 
-              {/* SOCIAL MEDIA ICON BUTTONS REDIRECTING TO RESPECTIVE WEBSITES */}
+              {/* SOCIAL MEDIA + EMAIL + PHONE ICON BUTTONS */}
               <div>
-                <span className="contact-email-label" style={{ display: 'block', marginBottom: '10px' }}>
-                  CONNECT ON SOCIALS
+                <span className="contact-email-label" style={{ display: 'block', marginBottom: '14px' }}>
+                  CONNECT WITH ME
                 </span>
                 <div className="contact-social-icons-row">
+                  {/* EMAIL ICON BUTTON */}
+                  <a
+                    href="mailto:natharadhanapala@gmail.com"
+                    className="contact-icon-btn"
+                    title="natharadhanapala@gmail.com"
+                    aria-label="Email"
+                  >
+                    <svg fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </a>
+
+                  {/* PHONE ICON BUTTON */}
+                  <a
+                    href="tel:+94716524501"
+                    className="contact-icon-btn"
+                    title="+94 71 652 4501"
+                    aria-label="Phone"
+                  >
+                    <svg fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                  </a>
+
                   {/* INSTAGRAM ICON BUTTON */}
                   <a
                     href="https://www.instagram.com/nethuli06/"
@@ -1107,16 +1168,8 @@ function App() {
                     title="Explore GitHub Repositories"
                     aria-label="GitHub"
                   >
-                    <svg
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                      />
+                    <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
                     </svg>
                   </a>
                 </div>
