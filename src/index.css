@@ -1,73 +1,71 @@
 @import "tailwindcss";
 
 /* ========================================================
-   GLOBAL COLOUR PALETTE & TOKENS
-   - Uploaded Zir Tech Color Gradient Palette:
-     * Darkest Navy: #03195b
-     * Royal Blue: #0b2cb1
-     * Electric Blue: #1951fc
-     * Sky Blue: #3781fc
-     * Pale Cloud Blue: #cbe9fd
-   - Brand Palette:
-     * Clouds: #FFF8E7
-     * Clear Skies: #8CC1E9
-     * Deep Ocean: #03195b
-     * Blueberry: #0b2cb1
-     * Bluebird: #1951fc
+   GLOBAL COLOUR PALETTE & TYPOGRAPHY TOKENS
+   - Uploaded Photo Palette:
+     * Golden Hour: #FFC107
+     * Deep Charcoal: #1A1A1A
+   - Accent & Complementary Tokens:
+     * Golden Amber: #FFB703
+     * Golden Light: #FFE082
+     * Burgundy (Active Skills Tab): #720e29
+     * Clean Canvas Light: #FFFFFF
+     * Off-White Surface: #F8F9FA
+     * Border Soft: rgba(0, 0, 0, 0.08)
+     * Border Dark: rgba(255, 255, 255, 0.12)
+   - Typography:
+     * Modern Sans (Inter / System Sans) for topics, body, and all UI elements
+     * Caveat for organic handwritten creative accents
 ======================================================== */
 
 :root {
-  /* Uploaded Palette Colors */
-  --blue-darkest: #03195b;
-  --blue-royal: #0b2cb1;
-  --blue-electric: #1951fc;
-  --blue-sky: #3781fc;
-  --blue-light: #cbe9fd;
+  /* Golden Hour & Deep Charcoal Palette */
+  --golden-hour: #FFC107;
+  --golden-amber: #FFB703;
+  --golden-dark: #D49B00;
+  --golden-light: #FFF0B3;
+  --golden-glow: rgba(255, 193, 7, 0.35);
 
-  /* 5 Core Palette Colours */
-  --clouds: #FFF8E7;
-  --clear-skies: #8CC1E9;
-  --deep-ocean: #03195b;
-  --blueberry: #0b2cb1;
-  --bluebird: #1951fc;
+  --deep-charcoal: #1A1A1A;
+  --charcoal-surface: #222222;
+  --charcoal-elevated: #282828;
+  --charcoal-border: #333333;
+  --charcoal-deep: #111111;
 
-  /* Semantic Theme Variables */
-  --bg-primary: #03195b;
-  --bg-deep: #020f38;
-  --text-primary: #FFF8E7;
-  --text-muted: rgba(255, 248, 231, 0.75);
-  --text-dim: rgba(255, 248, 231, 0.48);
+  /* Burgundy Token for Skills Active Tab */
+  --burgundy: #720e29;
+  --burgundy-hover: #851232;
+  --burgundy-glow: rgba(114, 14, 41, 0.3);
 
-  /* Transparent Glassmorphism Tokens */
-  --glass-bg: rgba(3, 25, 91, 0.58);
-  --glass-bg-hover: rgba(11, 44, 177, 0.48);
-  --glass-bg-subtle: rgba(3, 25, 91, 0.35);
-  --glass-border: rgba(140, 193, 233, 0.22);
-  --glass-border-hover: rgba(55, 129, 252, 0.55);
-  --glass-border-active: rgba(203, 233, 253, 0.85);
-  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
-  --glass-shadow-hover: 0 16px 44px rgba(0, 0, 0, 0.38), 0 0 28px rgba(25, 81, 252, 0.35);
-  --glass-blur: blur(16px);
-  --glass-fallback: rgba(3, 25, 91, 0.94);
+  /* Light Theme Surfaces (for Content Sections) */
+  --surface-white: #FFFFFF;
+  --surface-light: #F8F9FA;
+  --surface-alt: #F3F4F6;
+  --border-light: #E5E7EB;
+  --border-subtle: #EEEEEE;
 
-  /* Gradients */
-  --gradient-linear: linear-gradient(115deg, #03195b 0%, #0b2cb1 45%, #1951fc 75%, #3781fc 100%);
-  --gradient-button: linear-gradient(135deg, #0b2cb1 0%, #1951fc 100%);
-  --gradient-button-hover: linear-gradient(135deg, #1951fc 0%, #3781fc 100%);
-  --gradient-text: linear-gradient(110deg, #cbe9fd 0%, #8CC1E9 40%, #FFF8E7 100%);
+  /* Semantic Typography Colors */
+  --text-dark: #1A1A1A;
+  --text-dark-muted: #555555;
+  --text-dark-dim: #888888;
+  --text-light: #F8F9FA;
+  --text-light-muted: rgba(248, 249, 250, 0.72);
+  --text-light-dim: rgba(248, 249, 250, 0.45);
 
-  /* Glow Effects */
-  --glow-subtle: 0 0 22px rgba(25, 81, 252, 0.28);
-  --glow-strong: 0 0 38px rgba(55, 129, 252, 0.45);
-  --glow-button: 0 8px 25px rgba(11, 44, 177, 0.55);
+  /* Clean Architecture Grid */
+  --grid-pattern-dark: linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                       linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  --grid-pattern-light: linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  --grid-size: 80px 80px;
 
   /* Typography */
-  --font-heading: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-heading-weight: 800;
-  --font-body-weight: 600;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-handwriting: 'Caveat', cursive;
 
-  /* Standard Transitions */
+  /* Transitions */
   --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
@@ -75,9 +73,9 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 96px;
-  background-color: var(--blue-darkest);
-  color: var(--clouds);
+  scroll-padding-top: 84px;
+  background-color: var(--deep-charcoal);
+  color: var(--text-dark);
 }
 
 * {
@@ -88,10 +86,10 @@ html {
 
 body {
   min-width: 320px;
-  background-color: var(--blue-darkest);
-  color: var(--clouds);
+  background-color: var(--deep-charcoal);
+  color: var(--text-dark);
   font-family: var(--font-body);
-  font-weight: var(--font-body-weight);
+  font-weight: 500;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -100,14 +98,12 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: var(--font-heading-weight);
-  color: var(--clouds);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  font-weight: 900;
 }
 
 p, span, a, button, input, textarea, li, label {
   font-family: var(--font-body);
-  font-weight: var(--font-body-weight);
 }
 
 a {
@@ -124,6 +120,6 @@ button {
 }
 
 ::selection {
-  background: var(--blue-sky);
-  color: var(--blue-darkest);
+  background: var(--golden-hour);
+  color: var(--deep-charcoal);
 }

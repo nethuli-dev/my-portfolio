@@ -16,7 +16,10 @@ import semesterRiskImg from './assets/projects/semesterrisk.png'
 import genaiImg from './assets/projects/genai-code-reviewer.jpeg'
 import movierentalImg from './assets/projects/movierental.jpeg'
 import greenhouseImg from './assets/projects/greenhouse.jpeg'
-import nexoraImg from './assets/projects/AshenLens-NexoraAI.jpeg'
+
+/* Components */
+import { SkillsMap } from './components/SkillsMap'
+import { ExperienceShowcase } from './components/ExperienceShowcase'
 
 /* Scrapbook 6 Photos */
 import about1 from './assets/about/1.jpeg'
@@ -115,7 +118,6 @@ const projects: Project[] = [
     technologies: ['Python', 'Data Analysis', 'Machine Learning'],
     symbol: '◉',
     image: semesterRiskImg,
-    videoUrl: '/semesterrisk.mp4',
     githubUrl: 'https://github.com/nethuli-dev/Semester-Risk-Analyzer-.git',
   },
   {
@@ -164,57 +166,6 @@ const scrapbookPhotos = [
   { id: '4', src: about4, caption: 'Community & Leadership' },
   { id: '5', src: about5, caption: 'IFS Invitation for Top 10 Finalists' },
   { id: '6', src: about6, caption: 'AI Innovation Challenge 2026' },
-]
-
-const experiences = [
-  {
-    number: '01',
-    title: 'Nexora AI Challenge',
-    event: 'AI COMPETITION',
-    description:
-      'Participated in an AI agent challenge involving technician and repair-job dispatch decisions in a simulated environment.',
-    highlights: [
-      'Designed and improved an autonomous decision-making agent',
-      'Worked with technician allocation and job scheduling logic',
-      'Evaluated performance across simulation rounds',
-    ],
-    result: 'Round 1: Rank #1',
-    detail: 'Score: 0.717',
-    image: nexoraImg,
-  },
-]
-
-const skillCategories = [
-  {
-    category: 'ARTIFICIAL INTELLIGENCE & ML',
-    description: 'Intelligent decision models, generative AI architectures & data evaluation',
-    skills: [
-      { name: 'Machine Learning', tag: 'Core' },
-      { name: 'Artificial Intelligence', tag: 'Specialization' },
-      { name: 'Generative AI', tag: 'LLMs & Agents' },
-      { name: 'Data Analysis', tag: 'Analytics' },
-    ],
-  },
-  {
-    category: 'PROGRAMMING & LANGUAGES',
-    description: 'Foundational languages for systems, algorithms, and AI prototyping',
-    skills: [
-      { name: 'Python', tag: 'Primary' },
-      { name: 'TypeScript', tag: 'Frontend / Full-stack' },
-      { name: 'JavaScript', tag: 'Web Technologies' },
-      { name: 'C#', tag: 'Backend & Systems' },
-    ],
-  },
-  {
-    category: 'FULL-STACK, SYSTEMS & TOOLS',
-    description: 'Modern reactive user interfaces, databases, and version control',
-    skills: [
-      { name: 'React', tag: 'Frontend Library' },
-      { name: 'ASP.NET Core', tag: 'Backend Framework' },
-      { name: 'PostgreSQL', tag: 'Relational Database' },
-      { name: 'Git & GitHub', tag: 'Dev Tools & CI' },
-    ],
-  },
 ]
 
 /* Licenses and Courses — in order of issue date (newest first) */
@@ -368,17 +319,6 @@ function App() {
   }, [])
 
   /* Carousel Navigation Helpers */
-  const scrollToProject = (id: string) => {
-    const target = document.getElementById(`project-${id}`)
-    if (target && carouselRef.current) {
-      const targetLeft = target.offsetLeft - carouselRef.current.offsetLeft - 10
-      carouselRef.current.scrollTo({
-        left: targetLeft,
-        behavior: 'smooth',
-      })
-    }
-  }
-
   const scrollCarousel = (direction: 'left' | 'right') => {
     if (carouselRef.current) {
       const scrollAmount = direction === 'left' ? -380 : 380
@@ -565,10 +505,6 @@ function App() {
                   />
                 </svg>
                 Download CV
-              </a>
-
-              <a href="#about" className="button-secondary">
-                About Me <span>↓</span>
               </a>
             </div>
 
@@ -953,44 +889,7 @@ function App() {
             </p>
           </div>
 
-          <div className="experience-list">
-            {experiences.map((experience) => (
-              <article
-                className="experience-card"
-                key={experience.number}
-              >
-                <div className="experience-number">{experience.number}</div>
-
-                <div className="experience-main">
-                  <span className="experience-event">{experience.event}</span>
-
-                  <h3>{experience.title}</h3>
-
-                  <p className="experience-description">
-                    {experience.description}
-                  </p>
-
-                  <ul className="experience-highlights">
-                    {experience.highlights.map((highlight) => (
-                      <li key={highlight}>{highlight}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="experience-result-card">
-                  <div className="experience-result-preview">
-                    <img
-                      src={experience.image}
-                      alt="Nexora AI Challenge Artwork"
-                    />
-                  </div>
-                  <span>HIGHLIGHT</span>
-                  <strong>{experience.result}</strong>
-                  <small>{experience.detail}</small>
-                </div>
-              </article>
-            ))}
-          </div>
+          <ExperienceShowcase />
         </section>
 
         {/* TECHNICAL EXPERTISE / SKILLS SECTION */}
@@ -1007,26 +906,7 @@ function App() {
             </h2>
           </div>
 
-          <div className="skills-category-grid">
-            {skillCategories.map((group) => (
-              <div className="skill-category-card" key={group.category}>
-                <div className="skill-category-header">
-                  <span className="skill-category-badge">DOMAIN</span>
-                  <h3 className="skill-category-title">{group.category}</h3>
-                  <p className="skill-category-desc">{group.description}</p>
-                </div>
-
-                <div className="skill-items-list">
-                  {group.skills.map((skill) => (
-                    <div className="skill-item-row" key={skill.name}>
-                      <span className="skill-item-name">{skill.name}</span>
-                      <span className="skill-item-tag">{skill.tag}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
+          <SkillsMap />
         </section>
 
         {/* LICENSES AND COURSES SECTION */}
